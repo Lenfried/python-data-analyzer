@@ -1,9 +1,27 @@
+
+def analyze_numbers(numbers):
+    # This function takes a list of numbers and returns basic statistics.
+    if not numbers:
+        return None
+    
+
+    total = sum(numbers)
+    count = len(numbers)
+    average = total / count
+    minimum = min(numbers)
+    maximum = max(numbers)
+
+    return {
+        "total": total,
+        "count": count,
+        "average": average,
+        "min": minimum,
+        "max": maximum
+    }
+
+
 def main():
-    # ask the user how many numbers they would like to enter
-    # loop to get that many numbers from the user
-    # validate that the input is a number
-    # store the numbers in a list
-    # print the list of numbers
+    # This function collects a series of numbers from the user and displays them.
 
     numbers = []
 
@@ -32,6 +50,17 @@ def main():
     for num in numbers:
         print(num, end=" ")
         print()
+    
+    results = analyze_numbers(numbers)
+    if results:
+        print("\nStatistics:")
+        print(f"Total: {results.get('total')}")
+        print(f"Count: {results.get('count')}")
+        print(f"Average: {results.get('average'):.2f}")
+        print(f"Minimum: {results.get('min')}")
+        print(f"Maximum: {results.get('max')}")
+    else:
+        print("No numbers to analyze.")
 
 
 
