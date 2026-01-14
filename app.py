@@ -40,18 +40,23 @@ def test_weather():
 
 @app.route('/analyze-weather', methods=['GET', 'POST'])
 def analyze_weather():
-    # latitude = request.form.get('latitude', type=float)
-    # longitude = request.form.get('longitude', type=float)
-    latitude = 40.7128
-    longitude = -74.0060
-    # if latitude is None or longitude is None:
-    #     error_message = "Please provide valid latitude and longitude."
-    #     return render_template("weather_analysis.html", error=error_message)
-    
-    times, temperatures = fetch_hourly_temperature(latitude, longitude)
-    results = analyze_time_series(times, temperatures)
-    return render_template("weather_analysis_results.html", analysis=results)
-    
+    if request.method == 'POST':
+        latitude = request.form.get('latitude', type=float)
+        longitude = request.form.get('longitude', type=float)
+
+        if latitude is None or longitude is None:
+            error_message = "Please provide valid latitude and longitude."
+            return render_template("weather_input.html", error=error_message)
+        
+        times, temperatures = fetch_hourly_temperature(latitude, longitude)
+        results = analyze_time_series(times, temperatures)
+        return render_template("weather_analysis_results.html", analysis=results)
+    error_message = "Please provide valid latitude and longitude."
+    return render_template("weather_input.html", error=error_message)
+
+@app.route('/weather-input')
+def weather_input():
+    return render_template("weather_input.html")  
 
 if __name__ == '__main__':
     app.run(debug=True)

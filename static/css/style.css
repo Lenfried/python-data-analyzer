@@ -105,6 +105,16 @@ body{
   background:#fff;
   color:#061025;
 }
+.text-input{
+  width:100%;
+  height:40px;
+  border:1px solid #e6e9ef;
+  border-radius:8px;
+  padding:8px 12px;
+  font-size:15px;
+  background:#fff;
+  color:#061025;
+}
 .error{
   color:#b91c1c;
   margin-top:8px;

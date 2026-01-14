@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <title>Weather Analysis Input — Data Analyzer</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container header-inner">
+                <h1 class="brand">Data Analyzer</h1>
+                <p class="tagline">Weather time-series analysis</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="card" role="region" aria-labelledby="weather-input-title">
+                <h2 id="weather-input-title">Weather Analysis Input</h2>
+
+                <form action="/analyze-weather" method="post" class="form" novalidate>
+                    <label for="latitude" class="label">Latitude</label>
+                    <input type="text" id="latitude" name="latitude" required class="text-input" placeholder="e.g. 51.5074">
+
+                    <label for="longitude" class="label" style="margin-top:12px">Longitude</label>
+                    <input type="text" id="longitude" name="longitude" required class="text-input" placeholder="e.g. -0.1278">
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">Analyze Weather</button>
+                        <button type="reset" class="btn">Clear</button>
+                    </div>
+                </form>
+
+                {% if error %}
+                <div class="error" role="alert" aria-live="assertive">{{ error }}</div>
+                {% endif %}
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <div class="footer-left">Built for learning · Simple number analysis</div>
+                <div class="footer-right"><a href="/">Home</a> · <a href="mailto:help@example.com">Support</a></div>
+            </div>
+        </footer>
+    </body>
+</html>
