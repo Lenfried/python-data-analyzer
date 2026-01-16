@@ -23,7 +23,7 @@
             <div class="results-grid" role="region" aria-label="Weather summary">
                 <div class="result-card">
                     <div class="label">Min Temperature</div>
-                    <div class="value">{{ '%.2f' % analysis.min }}{{ temperature_unit|default('°C') }}</div>
+                    <div class="value">{{ '%.2f' % analysis.min }}°</div>
                     {% if analysis.min_time %}
                     <div class="muted">at {{ analysis.min_time }}</div>
                     {% endif %}
@@ -31,7 +31,7 @@
 
                 <div class="result-card">
                     <div class="label">Max Temperature</div>
-                    <div class="value">{{ '%.2f' % analysis.max }}{{ temperature_unit|default('°C') }}</div>
+                    <div class="value">{{ '%.2f' % analysis.max }}°</div>
                     {% if analysis.max_time %}
                     <div class="muted">at {{ analysis.max_time }}</div>
                     {% endif %}
@@ -39,17 +39,17 @@
 
                 <div class="result-card">
                     <div class="label">Mean (Average)</div>
-                    <div class="value">{{ '%.2f' % analysis.average }}{{ temperature_unit|default('°C') }}</div>
+                    <div class="value">{{ '%.2f' % analysis.average }}°</div>
                 </div>
 
                 <div class="result-card">
                     <div class="label">Median</div>
-                    <div class="value">{{ '%.2f' % analysis.median }}{{ temperature_unit|default('°C') }}</div>
+                    <div class="value">{{ '%.2f' % analysis.median }}°</div>
                 </div>
 
                 <div class="result-card">
                     <div class="label">Std Dev</div>
-                    <div class="value">{{ '%.2f' % analysis.stddev }}{{ temperature_unit|default('°C') }}</div>
+                    <div class="value">{{ '%.2f' % analysis.stddev }}°</div>
                 </div>
 
    
